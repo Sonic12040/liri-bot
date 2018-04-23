@@ -10,6 +10,18 @@ var request = require("request");
 
 function tweetCall() {
     console.log('Tweet Call Success');
+    let params = {
+        count: 20
+    }
+    client.get('statuses/user_timeline', params, function(error, tweets, response) {
+        if(error) {
+            console.log(error);
+        };
+        var tweetsArr = tweets;
+        tweetsArr.forEach(element => {
+            console.log(element.text);
+        });
+    })
 }
 
 function spotifyCall() {
@@ -44,6 +56,31 @@ function spotifyCall() {
 
 function movieCall() {
     console.log('Movie Call Success');
+    inquirer.prompt([
+        {
+            name: 'query',
+            type: 'input',
+            message: 'What movie are you searching for?'
+        }
+    ]).then(function(response) {
+        query = response.query;
+        if(query === '') {
+            query = 'Mr Nobody';
+        }
+        request('http://www.omdbapi.com/?apikey=trilogy&t=' + query, function(error, response, body) {
+            if(error) {
+                console.log(error);
+            };
+            console.log(JSON.parse(body).Title);
+            console.log(JSON.parse(body).Year);
+            console.log(JSON.parse(body).imdbRating);
+            console.log(JSON.parse(body).Ratings[1].Value);
+            console.log(JSON.parse(body).Country);
+            console.log(JSON.parse(body).Language);
+            console.log(JSON.parse(body).Plot);
+            console.log(JSON.parse(body).Actors);
+        })
+    })
 }
 
 function randomtxtCall() {
