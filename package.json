@@ -5,10 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "hoek": "^5.0.3",
+    "hoek": "^5.0.4",
     "inquirer": "^5.2.0",
     "node-spotify-api": "^1.0.7",
-    "request": "^2.85.0",
+    "request": "^2.88.0",
     "twitter": "^1.7.1"
   },
   "devDependencies": {},
