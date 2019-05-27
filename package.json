@@ -4,8 +4,7 @@
   "description": "LIRI-bot is a command-line node app for taking in parameters and spitting out data.",
   "main": "index.js",
   "dependencies": {
-    "dotenv": "^5.0.1",
-    "hoek": "^5.0.4",
+    "dotenv": "^8.0.0",
     "inquirer": "^5.2.0",
     "node-spotify-api": "^1.1.1",
     "request": "^2.88.0",
