@@ -14,7 +14,7 @@ function tweetCall() {
 	};
 	client.get('statuses/user_timeline', params, function(error, tweets) {
 		if (error) throw new Error;
-		tweets.forEach(tweet => process.stdout.write(`${tweet.text} \n`));
+    tweets.forEach(tweet => process.stdout.write(`${tweet.text} \n`));
 	});
 }
 
@@ -37,7 +37,7 @@ function spotifyCall() {
 		}
 		spotify.request('https://api.spotify.com/v1/search?q=track:' + response.query + '%20artist:' + response.artist + '&limit=1&type=track&market=us').then(function(data) {
 			const spotifyResponse = data.tracks.items[0];
-			if (spotifyResponse !== undefined || null) {
+			if (spotifyResponse !== (undefined || null)) {
 				process.stdout.write(`Band: ${spotifyResponse.album.artists[0].name} \n`);
 				process.stdout.write(`Song: ${spotifyResponse.name} \n`);
 				process.stdout.write(`Album: ${spotifyResponse.album.name} \n`);
