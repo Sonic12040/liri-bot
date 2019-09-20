@@ -62,5 +62,3 @@ typings/
 
 # package-lock.json
 package-lock.json
-.scannerwork/.sonar_lock
-.scannerwork/report-task.txt
